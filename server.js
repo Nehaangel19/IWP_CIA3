@@ -5,10 +5,17 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  // use Render port
 
-// Middleware
-app.use(cors());
+// ✅ Middleware (CORS fixed)
+app.use(cors({
+  origin: "https://iwp-cia3-ipas.onrender.com", // your frontend URL
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
+  credentials: true
+}));
+app.options("*", cors()); // respond to preflight
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -131,5 +138,5 @@ app.get("/api/profile/:id", async (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
