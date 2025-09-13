@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Assessment System</title>
+  
+  <!-- Immediate redirect to team.html -->
+  <script>
+    window.location.replace('team.html');
+  </script>
+  
+  <!-- Fallback meta redirect in case JavaScript is disabled -->
+  <meta http-equiv="refresh" content="0; url=team.html">
+  
+  <!-- Fallback styling for the brief moment before redirect -->
+  <style>
+    body {
+      background: radial-gradient(ellipse at top left, #161f39 0%, #23263a 100%);
+      color: #f4f6fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .loading {
+      text-align: center;
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fallback content in case redirect fails -->
+  <div class="loading">
+    <h2>Loading Team Information...</h2>
+    <p>If you're not redirected automatically, <a href="team.html" style="color: #25cff7;">click here</a></p>
+  </div>
+</body>
+</html>
